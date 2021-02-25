@@ -58,7 +58,7 @@ class MarkovChain:
         text = []
 
         for _ in range(s):
-            prev = self.__random_start_word()
+            prev = choice(self.chain[MarkovChain.SENTENCE_STOP])
 
             while True:
                 word = choice(self.chain[prev])
