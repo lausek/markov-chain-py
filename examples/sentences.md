@@ -49,7 +49,7 @@ Initial befindet sich der Schalter im Status S0 (offen) und die Flugzeugtür ist
 Wird der Schalter im Status S0 gedrückt , wechselt der Status von S0 nach S1 (geschlossen)
 Wird der Schalter im Status S1 gedrückt , wechselt der Status von S1 nach S2 (gesperrt)
 Wird der Schalter im Status S2 gedrückt , wechselt der Status von S2 nach S3 (entsperrt) .
-Wird der Schalter im Status S3 gedrückt , wechselt der Status von S3nach S0 (offen) .
+Wird der Schalter im Status S3 gedrückt , wechselt der Status von S3 nach S0 (offen) .
 Eine Anzeige beobachtet kontinuierlich den Status der Flugzeugtür und wird bei Änderungen des Status automatisch informiert .
 
 Ein Auto hat zwei Scheinwerfer , die über einen Schalter gesteuert werden .
@@ -239,7 +239,7 @@ Eine Geschwindigkeitsüberwachung registriert über einen Sensor ein Auto und mi
 Bei einer Geschwindigkeitsüberschreitung sendet der Sensor das Kommando Foto an die Kamera .
 
 Ein Elektroauto hat einen 2-poligen Anschluss für die Laden der vier Batterien .
-Die Ladestationenexistieren in den Typen (i) 2-polig und (ii) 3-polig .
+Die Ladestationen existieren in den Typen (i) 2-polig und (ii) 3-polig .
 Für die Verbindung des 2-poligen Anschluss und einer Ladestation vom Typ (ii) wird ein Adapter angewandt .
 Das Elektroauto wird durch einen digitalen Schlüssel über die Kommandos Öffnen , Starten und Schließen gesteuert .
 
