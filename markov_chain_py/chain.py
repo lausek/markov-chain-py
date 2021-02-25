@@ -51,7 +51,7 @@ class MarkovChain:
         # make sure that this chain actually contains a termination token.
         if not self.has_sentence_support:
             raise Exception(
-                'Cannot generated sentences as chain does not contain '
+                'Cannot generate sentences as chain does not contain '
                 f'`{MarkovChain.SENTENCE_STOP}`.'
             )
 
