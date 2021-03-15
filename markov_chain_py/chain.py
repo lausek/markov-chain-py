@@ -59,6 +59,27 @@ class MarkovChain:
 
             idx += 1
 
+    def _generate_sequence(self, termination_func, start=None):
+        restart_state = lambda: self._start_state() if start is None else start
+        prev = restart_state()
+        sequence = []
+
+        while True:
+            try:
+                state = choice(self.table.get(prev))
+            except IndexError:
+                state = restart_state()
+
+            emitted = self._lookup_value(state)
+            sequence.append(emitted)
+
+            if termination_func((state, emitted)):
+                break
+
+            prev = state
+
+        return sequence
+
     # generate a text block consisting of `s` sentences.
     def generate_text(self, s=4):
         # make sure that this chain actually contains a termination token.
@@ -68,40 +89,27 @@ class MarkovChain:
                 f'`{MarkovChain.SENTENCE_STOP}`.'
             )
 
+        def terminate_on_cycle(kv):
+            return kv[0] == self._start_state()
+
+        start = self._random_start_state()
         text = []
 
         for _ in range(s):
-            prev = choice(self.table.get(self._random_start_state()))
-
-            while True:
-                try:
-                    state = choice(self.table.get(prev))
-                except IndexError:
-                    state = self._random_start_state()
-
-                text.append(self._lookup_value(state))
-
-                # check if we reached the end of a sentence
-                if state == self._start_state():
-                    break
-
-                prev = state
+            text.extend(self._generate_sequence(terminate_on_cycle, start))
 
         return text
 
     # generate a sequence of `n` words
     def generate(self, n=20):
-        prev = self._start_state()
-        sentence = []
+        start = self._random_start_state()
+        # implement this as list to allow sharing between functions
+        emitted_words_counter = [0]
 
-        for i in range(n):
-            try:
-                state = choice(self.table.get(prev))
-            except IndexError:
-                state = self._random_start_state()
+        def terminate_on_amount():
+            def inner(_kv):
+                emitted_words_counter[0] += 1
+                return 20 <= emitted_words_counter[0]
+            return inner
 
-            sentence.append(self._lookup_value(state))
-
-            prev = state
-
-        return sentence
+        return self._generate_sequence(terminate_on_amount(), start)
