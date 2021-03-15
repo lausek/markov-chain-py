@@ -1,22 +1,25 @@
 #!/usr/bin/python3
 
-def build_spacy_chain(mode, lang):
-    try:
-        from .spacy_chain import SpacyPosMarkovChain, SpacyTagMarkovChain
-    except:
-        from spacy_chain import SpacyPosMarkovChain, SpacyTagMarkovChain
-
+def build_spacy_chain(mode, lang, lookback):
     mode, lang = mode.lower(), lang.lower()
 
     if lang != 'de':
         raise Exception('only language de is currently supported')
 
+    if not 1 <= lookback <= 2:
+        raise Exception('only lookback satisfying condition 1 <= lookback <= 2 is currently supported')
+
+    try:
+        from .spacy_chain import SpacyPosMarkovChain, SpacyTagMarkovChain
+    except:
+        from spacy_chain import SpacyPosMarkovChain, SpacyTagMarkovChain
+
     model = 'de_core_news_sm'
 
     if mode == 'pos':
-        return SpacyPosMarkovChain(model)
+        return SpacyPosMarkovChain(model, lookback)
     elif mode == 'tag':
-        return SpacyTagMarkovChain(model)
+        return SpacyTagMarkovChain(model, lookback)
 
     raise Exception('unknown mode %s' % mode)
 
@@ -31,11 +34,12 @@ def main():
     parser.add_argument('-s', type=int, default=None, help='Amount of sentences to generate. This will overturn -n.')
     parser.add_argument('--mode', type=str, default='', help='Text generation mode: pos, tag')
     parser.add_argument('--lang', type=str, default='de', help='Text language: de')
+    parser.add_argument('--lookback', type=int, default=1, help='Amount of states to consider for determining the next state.')
 
     args = parser.parse_args()
     
     if args.mode.lower() in ['tag', 'pos']:
-        gen = build_spacy_chain(args.mode, args.lang)
+        gen = build_spacy_chain(args.mode, args.lang, args.lookback)
 
     else:
         try:

@@ -66,6 +66,7 @@ class MarkovChain:
 
         while True:
             try:
+                print(prev, self.table.get(prev))
                 state = choice(self.table.get(prev))
             except IndexError:
                 state = restart_state()

@@ -12,10 +12,11 @@ except:
     from chain import MarkovChain
 
 class SpacyMarkovChain(MarkovChain):
-    def __init__(self, model):
+    def __init__(self, model, lookback):
         super().__init__()
         self.words = defaultdict(list)
-        self.nlp = spacy.load(model)
+        self.lookback = lookback
+        self._nlp = spacy.load(model)
 
     def __contains_only_punctuation(self, value):
         is_non_punctuation = lambda c: c not in ['/', '\\', '|', '-', '[', ']', '(', ')', '\n']
@@ -31,13 +32,17 @@ class SpacyMarkovChain(MarkovChain):
         return self._start_state()
 
     def _populate_chain(self, prev, current):
-        prev_key, current_key = self._lookup_key(prev), self._lookup_key(current)
+        prev_key = list(map(self._lookup_key, prev))
+        current_key = self._lookup_key(current)
         self.table.add(prev_key, current_key)
 
+    def __build_initial_key(self, it, lookback):
+        return [next(it) for _ in range(lookback)]
+
     def add_string(self, s):
-        tokens = iter(self.nlp(s))
+        tokens = iter(self._nlp(s))
         
-        prev = next(tokens)
+        prev = self.__build_initial_key(tokens, self.lookback)
         for token in tokens:
             if self.__contains_only_punctuation(token.norm_):
                 continue
@@ -48,20 +53,23 @@ class SpacyMarkovChain(MarkovChain):
             if self._lookup_key(token) == self._start_state():
                 self.has_sentence_support = True
 
-            prev = token
+            # shift key components to the left dropping the first item
+            # to satisfy `len(key) == self.lookback`
+            prev.append(token)
+            prev.pop(0)
 
 
 class SpacyPosMarkovChain(SpacyMarkovChain):
-    def __init__(self, model):
-        super().__init__(model)
+    def __init__(self, model, lookback):
+        super().__init__(model, lookback)
 
     def _lookup_key(self, obj):
         return obj.pos_
 
 
 class SpacyTagMarkovChain(SpacyPosMarkovChain):
-    def __init__(self, model):
-        super().__init__(model)
+    def __init__(self, model, lookback):
+        super().__init__(model, lookback)
         self.specialized_chain = defaultdict(list)
 
     def _start_state(self):
