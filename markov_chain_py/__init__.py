@@ -29,7 +29,7 @@ def main():
 
     parser.add_argument('-n', type=int, default=20, help='Amount of words to generate.')
     parser.add_argument('-s', type=int, default=None, help='Amount of sentences to generate. This will overturn -n.')
-    parser.add_argument('--mode', type=str, default='pos', help='Text generation mode: pos, tag')
+    parser.add_argument('--mode', type=str, default='', help='Text generation mode: pos, tag')
     parser.add_argument('--lang', type=str, default='de', help='Text language: de')
 
     args = parser.parse_args()

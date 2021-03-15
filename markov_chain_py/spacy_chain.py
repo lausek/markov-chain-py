@@ -32,7 +32,7 @@ class SpacyMarkovChain(MarkovChain):
 
     def _populate_chain(self, prev, current):
         prev_key, current_key = self._lookup_key(prev), self._lookup_key(current)
-        self.chain[prev_key].append(current_key)
+        self.table.add(prev_key, current_key)
 
     def add_string(self, s):
         tokens = iter(self.nlp(s))

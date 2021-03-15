@@ -1,11 +1,16 @@
-from collections import defaultdict
 from random import choice
+
+try:
+    from .table import LookupTable
+
+except:
+    from table import LookupTable
 
 class MarkovChain:
     SENTENCE_STOP = '.'
 
     def __init__(self):
-        self.chain = defaultdict(list)
+        self.table = LookupTable()
         # this will be `True` if the chain can be terminated aka.
         # if it contains a `SENTENCE_STOP`
         self.has_sentence_support = False
@@ -20,7 +25,7 @@ class MarkovChain:
 
     def _random_start_state(self):
         def get_word():
-            return choice(list(self.chain.keys()))
+            return choice(list(self.table.keys()))
 
         if self.has_sentence_support:
             prev = get_word()
@@ -50,7 +55,7 @@ class MarkovChain:
             if word == MarkovChain.SENTENCE_STOP:
                 self.has_sentence_support = True
 
-            self.chain[key].append(word)
+            self.table.add(key, word)
 
             idx += 1
 
@@ -66,11 +71,11 @@ class MarkovChain:
         text = []
 
         for _ in range(s):
-            prev = choice(self.chain[self._random_start_state()])
+            prev = choice(self.table.get(self._random_start_state()))
 
             while True:
                 try:
-                    state = choice(self.chain[prev])
+                    state = choice(self.table.get(prev))
                 except IndexError:
                     state = self._random_start_state()
 
@@ -91,7 +96,7 @@ class MarkovChain:
 
         for i in range(n):
             try:
-                state = choice(self.chain[prev])
+                state = choice(self.table.get(prev))
             except IndexError:
                 state = self._random_start_state()
 
