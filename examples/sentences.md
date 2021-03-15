@@ -20,7 +20,7 @@ Der Taschenrechnerbietet die Rechenstrategien Addition und Subtraktion an .
 An einem Flughafen existieren für die Passkontrolle drei Schalter (i) EU-Bürger , (ii) Nicht-EU-Bürger und (iii) Diplomaten .
 Basierend auf dem Pass ist der korrespondierende Schalter zuständig .
 Die Passkontrolle an den drei Schaltern wird kontinuierlich von der Bundespolizei überwacht .
-Wird ein ungültiger Pass (Attribut Status = invalid) bei der Kontrolle erkannt , erhält die Bundespolizeiautomatisch eine Nachricht .
+Wird ein ungültiger Pass (Attribut Status = invalid) bei der Kontrolle erkannt , erhält die Bundespolizei automatisch eine Nachricht .
 
 Ein Sortierprozess beobachtet kontinuierlich einen Datenspeicher .
 In dem Datenspeicher befinden sich ganze Zahlen in aufsteigender Sortierung .
@@ -98,7 +98,7 @@ Die Erhitzung des Wassers durch den Heizstab stoppt und der Schalter wird auf de
 Für die Zutrittskarte im Sicherheitsbereich werden zwei Varianten RFID01 und RFID02 vom Kartenleser unterstützt .
 Auf dem RFID-Chip ist die PIN und Super-PIN kodiert .
 Initial befindet die Zutrittskarte im Status aktiv .
-Auf der Zutrittskarte werden die Anzahl der fehlerhaften PIN-Eingabegespeichert .
+Auf der Zutrittskarte werden die Anzahl der fehlerhaften PIN-Eingabe gespeichert .
 Bei einer korrekten PIN-Eingabe wird der Zähler auf 0 gesetzt .
 Wird die PIN dreimal inkorrekt eingegeben , wechselt der Status der Zutrittskarte auf gesperrt .
 In dem Status gesperrt ist die Super-PIN erforderlich .
@@ -108,7 +108,7 @@ Eine Karte im Status ungültig wird vom Kartenleser abgewiesen und es ist keiner
 
 
 Eine Mautstation hat eine spezielle Einfahrt (EasyPass) für registrierte Fahrzeuge .
-Das Fahrzeugfährt an die geschlossene Schranke .
+Das Fahrzeug fährt an die geschlossene Schranke .
 Ein Sensor registriert das Fahrzeug und liest die Daten vondem RFID-Chip ein .
 Nach erfolgreicher Validierung sendet der Sensor das Kommando Öffnen an die Schranke .
 Die Durchfahrt von dem Fahrzeug wird vom Sensor registriert und dieser sendet das Kommando Schließen an die Schranke .
@@ -232,7 +232,7 @@ Ein Apothekerschrank vom Typ Fach hat 15 Hauptfächer .
 Ein Hauptfach hat 5 Subfächer .
 Ein Fachbietet Platz für 10 Packungen .
 Initial ist jedes Fach mit 10 Packungen gefüllt .
-Der Füllgrad zueinem Fach wird kontinuierlich durch einen Sensor überwacht .
+Der Füllgrad zu einem Fach wird kontinuierlich durch einen Sensor überwacht .
 Bei einem Füllgrad von vier Packungen erhält der Apotheker automatisch eine SMS auf sein Smartphone .
 
 Eine Geschwindigkeitsüberwachung registriert über einen Sensor ein Auto und misst automatisch die Geschwindigkeit .
@@ -396,12 +396,12 @@ Mit diesem Taster wird zwischen den Betriebsmodi RW und RO gewechselt .
 Initial befindet sich der Taster im Betriebsmodus RW .
 
 Ein Logistikzentrum verfügt über fünf Zonen für die Beladung / Entladung von LKW .
-Jede Zone ist mit einem Sensor ausgestattet , welcher die Ankunft eines LKW registriert und einen Mitarbeiter perSMS automatisch informiert .
+Jede Zone ist mit einem Sensor ausgestattet , welcher die Ankunft eines LKW registriert und einen Mitarbeiter per SMS automatisch informiert .
 Jede Zone verfügt ein Rolltor , welche über einen Taster geöffnet undgeschlossen wird .
 Initial ist das Rolltor geschlossen .
 Der Mitarbeiter drückt den Taster und das Rolltor wird geöffnet .
 Der LKW wird entladen .
-Der Mitarbeiter drückt erneut den Taster und dasRolltor wird geschlossen .
+Der Mitarbeiter drückt erneut den Taster und das Rolltor wird geschlossen .
 
 In einem Naturschutzreservat mit den Zonen A , B und C sind die Elefanten mit einem Sensor – als Schutz gegen Wilderei – ausgestattet .
 Ein Kontrollcenter wird automatisch bei ungewöhnlichen Ereignissen in der Zone – wo sich der Elefant gerade befindet – informiert .

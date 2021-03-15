@@ -5,7 +5,10 @@ setup(
     version='0.1.0',
     author='lausek',
     packages=find_packages(),
+    install_requires=[
+        'spacy',
+    ],
     entry_points={
-        'console_scripts': ['markov=markov_chain_py:main']
+        'console_scripts': ['markov=markov_chain_py:main'],
     }
 )

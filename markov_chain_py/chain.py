@@ -10,17 +10,15 @@ class MarkovChain:
         # if it contains a `SENTENCE_STOP`
         self.has_sentence_support = False
 
-    def __tokenize(self, s):
-        for line in s.split('\n'):
-            for word in line.split(' '):
-                word = word.strip().lower()
+    # this is only used if the value to be printed is not equal to the key.
+    # for naive markov chains the state name is equal to the word.
+    def _lookup_value(self, state):
+        return state
 
-                if not word:
-                    continue
+    def _start_state(self):
+        return MarkovChain.SENTENCE_STOP
 
-                yield word
-
-    def __random_start_word(self):
+    def _random_start_state(self):
         def get_word():
             return choice(list(self.chain.keys()))
 
@@ -31,6 +29,16 @@ class MarkovChain:
             return prev
 
         return get_word()
+
+    def __tokenize(self, s):
+        for line in s.split('\n'):
+            for word in line.split(' '):
+                word = word.strip().lower()
+
+                if not word:
+                    continue
+
+                yield word
 
     def add_string(self, s):
         words = list(self.__tokenize(s))
@@ -58,38 +66,37 @@ class MarkovChain:
         text = []
 
         for _ in range(s):
-            prev = choice(self.chain[MarkovChain.SENTENCE_STOP])
+            prev = choice(self.chain[self._random_start_state()])
 
             while True:
-                word = choice(self.chain[prev])
+                try:
+                    state = choice(self.chain[prev])
+                except IndexError:
+                    state = self._random_start_state()
 
-                text.append(word)
+                text.append(self._lookup_value(state))
 
                 # check if we reached the end of a sentence
-                if word == MarkovChain.SENTENCE_STOP:
+                if state == self._start_state():
                     break
 
-                if word in self.chain:
-                    prev = word
-                else:
-                    prev = self.__random_start_word()
+                prev = state
 
         return text
 
     # generate a sequence of `n` words
     def generate(self, n=20):
-        prev = self.__random_start_word()
+        prev = self._start_state()
         sentence = []
 
         for i in range(n):
-            word = choice(self.chain[prev])
+            try:
+                state = choice(self.chain[prev])
+            except IndexError:
+                state = self._random_start_state()
 
-            sentence.append(word)
+            sentence.append(self._lookup_value(state))
 
-            # check that the next word has a successor
-            if word in self.chain:
-                prev = word
-            else:
-                prev = self.__random_start_word()
+            prev = state
 
         return sentence
