@@ -20,7 +20,7 @@ Der Taschenrechnerbietet die Rechenstrategien Addition und Subtraktion an .
 An einem Flughafen existieren für die Passkontrolle drei Schalter (i) EU-Bürger , (ii) Nicht-EU-Bürger und (iii) Diplomaten .
 Basierend auf dem Pass ist der korrespondierende Schalter zuständig .
 Die Passkontrolle an den drei Schaltern wird kontinuierlich von der Bundespolizei überwacht .
-Wird ein ungültiger Pass (Attribut Status = invalid) bei der Kontrolle erkannt , erhält die Bundespolizei automatisch eine Nachricht .
+Wird ein ungültiger Pass ( Attribut Status = invalid ) bei der Kontrolle erkannt , erhält die Bundespolizei automatisch eine Nachricht .
 
 Ein Sortierprozess beobachtet kontinuierlich einen Datenspeicher .
 In dem Datenspeicher befinden sich ganze Zahlen in aufsteigender Sortierung .
@@ -56,9 +56,9 @@ Ein Auto hat zwei Scheinwerfer , die über einen Schalter gesteuert werden .
 Der Schalter sendet direkt ein Kommando an die beiden Scheinwerfer .
 Initial befindet sich der Schalter im Status S0 (Licht aus) .
 Wird der Schalter im Status S0 gedrückt , wechselt der Status von S0 nach S1 (Parken) .
-Wird der Schalter im Status S1 gedrückt , wechselt der Status von S1 nach S2 (Abblendlicht) .
-Wird der Schalter im Status S2 gedrückt , wechselt der Status von S2 nach S3 (Fernlicht) .
-Wird der Schalter im Status S3 gedrückt , wechselt der Status von S3 nach S0 (Licht aus) .
+Wird der Schalter im Status S1 gedrückt , wechselt der Status von S1 nach S2 ( Abblendlicht ) .
+Wird der Schalter im Status S2 gedrückt , wechselt der Status von S2 nach S3 ( Fernlicht ) .
+Wird der Schalter im Status S3 gedrückt , wechselt der Status von S3 nach S0 ( Licht aus ) .
 
 Ein Abspielgerät hat eine Taste .
 Initial befindet sich die Taste im Status S0 (aus) .
@@ -430,7 +430,7 @@ Die belegten Betten können sukzessive durchlaufen werden .
 Jedes Bett verfügt über eine NotrufTaste .
 Durch das Drücken der Notruf-Taste wird eine Mitarbeiter verständigt .
 
-Die Oberfläche einer Kaffeebohne wird zu Simulationszwecken als 2-dimensionales Array (5 x 10) mit Zeichen aus dem Pool [C ,X] dargestellt .
+Die Oberfläche einer Kaffeebohne wird zu Simulationszwecken als 2-dimensionales Array (5 x 10) mit Zeichen aus dem Pool [ C , X ] dargestellt .
 Das Zeichen X bedeutet ein Mangel .
 Die Qualitätskontrolle verfügt über 25 in einer Reihe angeordnete optische Sensoren .
 Hinter jedem Sensor befindet sich eine Düse für einen Luftstrahl .
@@ -454,7 +454,7 @@ Die Leitwarte sendet die Kommandos Heben und Senken .
 
 Über eine Fernbedienung wird eine Klimaanlage angeschaltet / ausgeschaltet .
 Ein Luftstrom wird dargestellt mit Zeichen aus dem Pool [a ,i ,r ,d] .
-Aus dem Luftstrom wird der Staub (Zeichen d = dust) gefiltert .
+Aus dem Luftstrom wird der Staub ( Zeichen d = dust ) gefiltert .
 
 Ein Hotel verfügt über acht Etagen .
 Jede Etage verfügt einen Flur , auf dessen rechten und linken Seite je 50 Zimmer angeordnet sind .
@@ -524,7 +524,7 @@ Eine Dialysemaschine hat einen Schalter bedient .
 Standardmäßig ist die Dialysemaschine ausgeschaltet .
 Bei Drücken des Schalters wird die Dialysemaschine angeschaltet .
 Bei erneutem Drückendes Schalters wird die Dialysemaschine ausgeschaltet .
-Zu Simulationszwecken wird ein Blutstrom mit einer Zeichenkette aus 200 Zeichen (Pool: O , T , P , N) dargestellt
+Zu Simulationszwecken wird ein Blutstrom mit einer Zeichenkette aus 200 Zeichen ( Pool: O , T , P , N) dargestellt
 Mit zwei hintereinandergeschalteten Filtersystemen [i] T und P und [ii] N werden die korrespondierenden Zeichen entfernt , sodass als Ergebnis ein gereinigter Blutstrom bestehend aus den Zeichen O entsteht .
 
 Eine Mückenfalle ist mit einem Sensor ausgestattet

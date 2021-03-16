@@ -23,18 +23,25 @@ def build_spacy_chain(mode, lang, lookback):
 
 def main():
     import argparse
+    import logging
     import sys
+
+    logging.basicConfig(format='%(message)s', level=logging.INFO, stream=sys.stdout)
 
     parser = argparse.ArgumentParser()
 
     parser.add_argument('-n', type=int, default=20, help='Amount of words to generate.')
     parser.add_argument('-s', type=int, default=None, help='Amount of sentences to generate. This will overturn -n.')
     parser.add_argument('--lookback', type=int, default=1, help='Amount of states to consider for determining the next state.')
+    parser.add_argument('--verbose', default=False, action='store_true', help='Output verbose information about the text generation.')
 
     parser.add_argument('--lang', type=str, default='de', help='Text language: de')
     parser.add_argument('--mode', type=str, default='', help='Text generation mode: pos, tag')
 
     args = parser.parse_args()
+
+    if args.verbose:
+        logging.getLogger().setLevel(logging.DEBUG)
 
     if not 1 <= args.lookback:
         raise Exception('lookback must be greater than one.')
@@ -56,10 +63,10 @@ def main():
     try:
         text = gen.generate_text(args.s) if args.s else gen.generate(args.n)
 
-        print(' '.join(text))
+        logging.info(' '.join(text))
 
     except Exception as e:
-        print('ERROR:', e)
+        logging.error(e)
 
 
 if __name__ == '__main__':

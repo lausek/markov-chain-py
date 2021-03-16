@@ -19,6 +19,9 @@ class LookbackState:
     def get(self) -> list:
         return self._inner
 
+    def reset(self):
+        self._inner = []
+
     def update(self, new):
         self._inner.append(new)
 

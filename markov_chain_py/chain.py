@@ -1,3 +1,4 @@
+import logging
 from random import choice
 
 try:
@@ -37,8 +38,10 @@ class MarkovChain(object):
         return state
 
     def _start_state(self) -> str:
-        return MarkovChain.SENTENCE_STOP
-
+        if self.has_sentence_support:
+            return MarkovChain.SENTENCE_STOP
+        return self.table.find_random_state()
+    
     def add_string(self, s):
         words = iter(self.__tokenize(s))
         prev = self._build_initial_key(words, self.lookback)
@@ -52,15 +55,20 @@ class MarkovChain(object):
             prev.update(word)
 
     def _generate_sequence(self, termination_func):
-        restart_state = lambda: LookbackState(self.lookback, [self._start_state()])
-        prev = restart_state()
+        prev_state = LookbackState(self.lookback, [self._start_state()])
         sequence = []
+        resets = 0
 
         while True:
             try:
-                state = choice(self.table.get(prev.get()))
+                state = choice(self.table.get(prev_state.get()))
             except KeyError:
-                state = restart_state()
+                # rerun with starting state
+                prev_state.reset()
+                prev_state.update(self._start_state())
+                state = choice(self.table.get(prev_state.get()))
+
+                resets += 1
 
             emitted = self._lookup_value(state)
             sequence.append(emitted)
@@ -68,7 +76,12 @@ class MarkovChain(object):
             if termination_func((state, emitted)):
                 break
 
-            prev.update(state)
+            prev_state.update(state)
+
+        logging.debug('# lookback: %d', self.lookback)
+        logging.debug('# top-level states: %d', len(self.table.keys()))
+        logging.debug('# resets: %d', resets)
+        logging.debug('')
 
         return sequence
 

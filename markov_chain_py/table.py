@@ -1,3 +1,5 @@
+import random
+
 class LookupTable:
     def __init__(self, depth, graceful=True):
         self._depth = depth
@@ -14,7 +16,12 @@ class LookupTable:
         raise Exception('key of type %s is not supported' % type(key).__name__)
 
     def keys(self):
-        return self._layer.keys()
+        return list(self._layer.keys())
+
+    def find_random_state(self):
+        if 1 < self._depth:
+            return random.choice(self._layer.values()).find_random_state()
+        return random.choice(self.keys())
 
     def get(self, key):
         assert len(key) <= self._depth
