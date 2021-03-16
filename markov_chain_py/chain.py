@@ -23,6 +23,9 @@ class MarkovChain(object):
         return LookbackState(lookback, [next(it) for _ in range(lookback)])
 
     def __tokenize(self, s):
+        # make sure that SENTENCE_STOP has enough space to correctly tokenize
+        s = s.replace('.', ' . ')
+
         for line in s.split('\n'):
             for word in line.split(' '):
                 word = word.strip().lower()
