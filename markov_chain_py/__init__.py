@@ -36,8 +36,8 @@ def main():
 
     args = parser.parse_args()
 
-    if not 1 <= args.lookback <= 2:
-        raise Exception('only lookback satisfying condition 1 <= lookback <= 2 is currently supported')
+    if not 1 <= args.lookback:
+        raise Exception('lookback must be greater than one.')
     
     if args.mode.lower() in ['tag', 'pos']:
         gen = build_spacy_chain(args.mode, args.lang, args.lookback)

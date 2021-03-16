@@ -19,7 +19,7 @@ class SpacyMarkovChain(MarkovChain):
         self._nlp = spacy.load(model)
 
     def __contains_only_punctuation(self, value):
-        is_non_punctuation = lambda c: c not in ['/', '\\', '|', '-', '[', ']', '(', ')', '\n']
+        is_non_punctuation = lambda c: c not in ['/', '\\', '|', '-', '[', ']', '(', ')', '=', '\n']
         return not any(map(is_non_punctuation, value))
 
     def _lookup_value(self, state):

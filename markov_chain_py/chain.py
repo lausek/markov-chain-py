@@ -59,7 +59,7 @@ class MarkovChain(object):
         while True:
             try:
                 state = choice(self.table.get(prev.get()))
-            except IndexError:
+            except KeyError:
                 state = restart_state()
 
             emitted = self._lookup_value(state)

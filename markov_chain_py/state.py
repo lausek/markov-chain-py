@@ -25,4 +25,4 @@ class LookbackState:
         if self.lookback < len(self._inner):
             self._inner.pop(0)
 
-        assert self.lookback == len(self._inner)
+            assert self.lookback == len(self._inner)

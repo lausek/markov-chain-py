@@ -28,10 +28,10 @@ class LookupTable:
         for child_layer in self._layer.values():
             try:
                 return child_layer.get(key)
-            except IndexError:
+            except KeyError:
                 pass
 
-        raise IndexError()
+        raise KeyError()
 
     def add(self, key, item):
         assert len(key) <= self._depth
