@@ -11,11 +11,11 @@ try:
 except:
     from chain import MarkovChain
 
+
 class SpacyMarkovChain(MarkovChain):
     def __init__(self, model, lookback):
-        super().__init__()
+        super().__init__(lookback)
         self.words = defaultdict(list)
-        self.lookback = lookback
         self._nlp = spacy.load(model)
 
     def __contains_only_punctuation(self, value):
@@ -28,26 +28,20 @@ class SpacyMarkovChain(MarkovChain):
     def _start_state(self):
         return 'PUNCT'
 
-    def _random_start_state(self):
-        return self._start_state()
-
     def _populate_chain(self, prev, current):
         prev_key = list(map(self._lookup_key, prev))
         current_key = self._lookup_key(current)
         self.table.add(prev_key, current_key)
 
-    def __build_initial_key(self, it, lookback):
-        return [next(it) for _ in range(lookback)]
-
     def add_string(self, s):
         tokens = iter(self._nlp(s))
-        
-        prev = self.__build_initial_key(tokens, self.lookback)
+
+        prev = super()._build_initial_key(tokens, self.lookback)
         for token in tokens:
             if self.__contains_only_punctuation(token.norm_):
                 continue
 
-            self._populate_chain(prev, token)
+            self._populate_chain(prev.get(), token)
             self.words[self._lookup_key(token)].append(token.norm_)
 
             if self._lookup_key(token) == self._start_state():
@@ -55,8 +49,7 @@ class SpacyMarkovChain(MarkovChain):
 
             # shift key components to the left dropping the first item
             # to satisfy `len(key) == self.lookback`
-            prev.append(token)
-            prev.pop(0)
+            prev.update(token)
 
 
 class SpacyPosMarkovChain(SpacyMarkovChain):

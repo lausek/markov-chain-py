@@ -6,9 +6,6 @@ def build_spacy_chain(mode, lang, lookback):
     if lang != 'de':
         raise Exception('only language de is currently supported')
 
-    if not 1 <= lookback <= 2:
-        raise Exception('only lookback satisfying condition 1 <= lookback <= 2 is currently supported')
-
     try:
         from .spacy_chain import SpacyPosMarkovChain, SpacyTagMarkovChain
     except:
@@ -32,11 +29,15 @@ def main():
 
     parser.add_argument('-n', type=int, default=20, help='Amount of words to generate.')
     parser.add_argument('-s', type=int, default=None, help='Amount of sentences to generate. This will overturn -n.')
-    parser.add_argument('--mode', type=str, default='', help='Text generation mode: pos, tag')
-    parser.add_argument('--lang', type=str, default='de', help='Text language: de')
     parser.add_argument('--lookback', type=int, default=1, help='Amount of states to consider for determining the next state.')
 
+    parser.add_argument('--lang', type=str, default='de', help='Text language: de')
+    parser.add_argument('--mode', type=str, default='', help='Text generation mode: pos, tag')
+
     args = parser.parse_args()
+
+    if not 1 <= args.lookback <= 2:
+        raise Exception('only lookback satisfying condition 1 <= lookback <= 2 is currently supported')
     
     if args.mode.lower() in ['tag', 'pos']:
         gen = build_spacy_chain(args.mode, args.lang, args.lookback)
@@ -47,9 +48,10 @@ def main():
         except:
             from chain import MarkovChain
 
-        gen = MarkovChain()
+        gen = MarkovChain(args.lookback)
 
     gen.add_string(sys.stdin.read())
+    text = gen.generate_text(args.s) if args.s else gen.generate(args.n)
 
     try:
         text = gen.generate_text(args.s) if args.s else gen.generate(args.n)
