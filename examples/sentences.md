@@ -355,7 +355,7 @@ Die Stromversorgung erfolgt über einen 2-Pin-Stecker .
 Für die Stromversorgung mit einem 3-Pin-Stecker wird ein Adapter eingesetzt .
 
 Ein Busbahnhof hat drei drei Spuren Lokal , Shuttle und Fernbus .
-Auf einem zentralen Parkplatz miteiner Kapazität von 50 Bussen warten - zufällig verteilt - 30 Busse vom Typ Lokal , 8 Busse vomTyp Shuttle und 12 Fernbusse .
+Auf einem zentralen Parkplatz miteiner Kapazität von 50 Bussen warten - zufällig verteilt - 30 Busse vom Typ Lokal , 8 Busse vom Typ Shuttle und 12 Fernbusse .
 Von einer zentralen Disposition erhalten die Busse den Auftrag zum Busbahnhof zu fahren und in der korrespondierenden Spur die Fahrgäste aufzunehmen .
 
 Initial hat ein Fahrgast den Status S0 .
