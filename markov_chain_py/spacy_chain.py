@@ -41,6 +41,10 @@ class SpacyMarkovChain(MarkovChain):
             if self.__contains_only_punctuation(token.norm_):
                 continue
 
+            # ignore unknown words
+            if token.pos_ == 'X':
+                continue
+
             self._populate_chain(prev.get(), token)
             self.words[self._lookup_key(token)].append(token.norm_)
 
