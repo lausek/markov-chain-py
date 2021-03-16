@@ -5,8 +5,6 @@ class LookbackState:
         if isinstance(initial, LookbackState):
             initial = initial._inner
 
-        assert self.lookback <= len(initial)
-
         if isinstance(initial, list):
             self._inner = initial
         else:

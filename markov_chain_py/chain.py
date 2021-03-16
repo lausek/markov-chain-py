@@ -12,8 +12,8 @@ class MarkovChain(object):
     SENTENCE_STOP = '.'
 
     def __init__(self, lookback):
-        self.table = LookupTable()
         self.lookback = lookback
+        self.table = LookupTable(self.lookback)
         # this will be `True` if the chain can be terminated aka.
         # if it contains a `SENTENCE_STOP`
         self.has_sentence_support = False
@@ -36,25 +36,23 @@ class MarkovChain(object):
     def _lookup_value(self, state):
         return state
 
-    def _start_state(self):
+    def _start_state(self) -> str:
         return MarkovChain.SENTENCE_STOP
 
     def add_string(self, s):
-        words = list(self.__tokenize(s))
-        idx = 1
+        words = iter(self.__tokenize(s))
+        prev = self._build_initial_key(words, self.lookback)
 
-        for word in words[idx:]:
-            key = words[idx - 1]
-
+        for word in words:
             if word == MarkovChain.SENTENCE_STOP:
                 self.has_sentence_support = True
 
-            self.table.add(key, word)
+            self.table.add(prev.get(), word)
 
-            idx += 1
+            prev.update(word)
 
     def _generate_sequence(self, termination_func):
-        restart_state = lambda: LookbackState(self.lookback, self._start_state())
+        restart_state = lambda: LookbackState(self.lookback, [self._start_state()])
         prev = restart_state()
         sequence = []
 

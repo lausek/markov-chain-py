@@ -1,6 +1,7 @@
 class LookupTable:
-    def __init__(self, graceful=True):
-        self._inner = {}
+    def __init__(self, depth, graceful=True):
+        self._depth = depth
+        self._layer = {}
         self._graceful = graceful
 
     def __normalize_key(self, key):
@@ -10,37 +11,49 @@ class LookupTable:
         if isinstance(key, str):
             return [key]
 
-        raise Exception("key of type %s is not supported" % type(key).__name__)
+        raise Exception('key of type %s is not supported' % type(key).__name__)
 
     def keys(self):
-        return self._inner.keys()
+        return self._layer.keys()
 
     def get(self, key):
-        key = self.__normalize_key(key)
-        current_layer = self._inner
+        assert len(key) <= self._depth
 
-        for key_part in key:
-            if key_part not in current_layer:
-                raise IndexError()
+        if len(key) == self._depth:
+            if 1 < self._depth:
+                return self._layer[key[0]].get(key[1:])
+            return self._layer[key[0]]
 
-            current_layer = current_layer[key_part]
+        # key is too short, brute force through child layers
+        for child_layer in self._layer.values():
+            try:
+                return child_layer.get(key)
+            except IndexError:
+                pass
 
-        return current_layer
+        raise IndexError()
 
     def add(self, key, item):
-        key = self.__normalize_key(key)
-        last_layer_idx = len(key) - 1
-        current_layer = self._inner
+        assert len(key) <= self._depth
 
-        for idx, key_part in enumerate(key):
-            if idx == last_layer_idx:
-                if key_part not in current_layer:
-                    current_layer[key_part] = []
+        if len(key) == self._depth:
+            # this layer is nested
+            if 1 < self._depth:
+                if key[0] not in self._layer:
+                    self._layer[key[0]] = LookupTable(self._depth - 1)
 
-                current_layer[key_part].append(item)
-
+                self._layer[key[0]].add(key[1:], item)
+            
+            # this layer is flat
             else:
-                if key_part not in current_layer:
-                    current_layer[key_part] = {}
+                if key[0] not in self._layer:
+                    self._layer[key[0]] = []
 
-                current_layer = current_layer[key_part]
+                self._layer[key[0]].append(item)
+
+        else:
+            for child_layer in self._layer.values():
+                child_layer.add(key, item)
+
+    def __repr__(self):
+        return str(self._layer)

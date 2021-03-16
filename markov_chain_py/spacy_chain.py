@@ -25,7 +25,7 @@ class SpacyMarkovChain(MarkovChain):
     def _lookup_value(self, state):
         return random.choice(self.words[state])
 
-    def _start_state(self):
+    def _start_state(self) -> str:
         return 'PUNCT'
 
     def _populate_chain(self, prev, current):
@@ -63,15 +63,9 @@ class SpacyPosMarkovChain(SpacyMarkovChain):
 class SpacyTagMarkovChain(SpacyPosMarkovChain):
     def __init__(self, model, lookback):
         super().__init__(model, lookback)
-        self.specialized_chain = defaultdict(list)
 
-    def _start_state(self):
+    def _start_state(self) -> str:
         return '$.'
-
-    def _populate_chain(self, prev, current):
-        super()._populate_chain(prev, current)
-
-        self.specialized_chain[prev.tag_].append(current.tag_)
 
     def _lookup_key(self, obj):
         return obj.tag_
