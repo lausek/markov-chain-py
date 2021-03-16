@@ -390,7 +390,7 @@ In Abhängigkeit von der Qualität und dem Gewicht werden die Orangen verantwort
 
 Eine Festplatte hat 25 Hauptsektoren .
 Jeder Hauptsektor hat 50 Untersektoren .
-Ein Untersektorhat fünf Sektoren mit je einer Kapazität von 100 Zeichen aus dem Pool [a-z] .
+Ein Untersektor hat fünf Sektoren mit je einer Kapazität von 100 Zeichen aus dem Pool [a-z] .
 An der Rückseite der Festplatte existiert ein Taster .
 Mit diesem Taster wird zwischen den Betriebsmodi RW und RO gewechselt .
 Initial befindet sich der Taster im Betriebsmodus RW .

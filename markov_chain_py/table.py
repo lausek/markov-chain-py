@@ -20,7 +20,7 @@ class LookupTable:
 
     def find_random_state(self):
         if 1 < self._depth:
-            return random.choice(self._layer.values()).find_random_state()
+            return random.choice(list(self._layer.values())).find_random_state()
         return random.choice(self.keys())
 
     def get(self, key):

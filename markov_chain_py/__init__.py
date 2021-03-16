@@ -1,5 +1,13 @@
 #!/usr/bin/python3
 
+try:
+    from .chain import MarkovChain
+    from .ngram_chain import NGramMarkovChain
+except:
+    from chain import MarkovChain
+    from ngram_chain import NGramMarkovChain
+
+
 def build_spacy_chain(mode, lang, lookback):
     mode, lang = mode.lower(), lang.lower()
 
@@ -35,8 +43,8 @@ def main():
     parser.add_argument('--lookback', type=int, default=1, help='Amount of states to consider for determining the next state.')
     parser.add_argument('--verbose', default=False, action='store_true', help='Output verbose information about the text generation.')
 
+    parser.add_argument('--mode', type=str, default='', help='Text generation mode: ngram, pos, tag')
     parser.add_argument('--lang', type=str, default='de', help='Text language: de')
-    parser.add_argument('--mode', type=str, default='', help='Text generation mode: pos, tag')
 
     args = parser.parse_args()
 
@@ -49,12 +57,10 @@ def main():
     if args.mode.lower() in ['tag', 'pos']:
         gen = build_spacy_chain(args.mode, args.lang, args.lookback)
 
-    else:
-        try:
-            from .chain import MarkovChain
-        except:
-            from chain import MarkovChain
+    elif args.mode.lower() in ['ngram']:
+        gen = NGramMarkovChain(args.lookback)
 
+    else:
         gen = MarkovChain(args.lookback)
 
     gen.add_string(sys.stdin.read())
@@ -62,8 +68,7 @@ def main():
 
     try:
         text = gen.generate_text(args.s) if args.s else gen.generate(args.n)
-
-        logging.info(' '.join(text))
+        logging.info(text)
 
     except Exception as e:
         logging.error(e)

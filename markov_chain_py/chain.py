@@ -22,7 +22,10 @@ class MarkovChain(object):
     def _build_initial_key(self, it, lookback):
         return LookbackState(lookback, [next(it) for _ in range(lookback)])
 
-    def __tokenize(self, s):
+    def _format_output_sequence(self, sequence):
+        return ' '.join(sequence)
+
+    def _tokenize(self, s):
         # make sure that SENTENCE_STOP has enough space to correctly tokenize
         s = s.replace('.', ' . ')
 
@@ -46,7 +49,7 @@ class MarkovChain(object):
         return self.table.find_random_state()
     
     def add_string(self, s):
-        words = iter(self.__tokenize(s))
+        words = iter(self._tokenize(s))
         prev = self._build_initial_key(words, self.lookback)
 
         for word in words:
@@ -102,12 +105,9 @@ class MarkovChain(object):
             )
 
 
-        text = []
+        text = (self._generate_sequence(terminate_on_cycle) for _ in range(s))
 
-        for _ in range(s):
-            text.extend(self._generate_sequence(terminate_on_cycle))
-
-        return text
+        return ' '.join(map(self._format_output_sequence, text))
 
     # generate a sequence of `n` words
     def generate(self, n=20):
@@ -120,5 +120,6 @@ class MarkovChain(object):
 
         # implement this as list to allow sharing between functions
         emitted_words_counter = [0]
-
-        return self._generate_sequence(terminate_on_amount())
+        
+        sequence = self._generate_sequence(terminate_on_amount())
+        return self._format_output_sequence(sequence)
