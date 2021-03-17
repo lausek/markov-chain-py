@@ -121,7 +121,7 @@ class MarkovChain(object):
         def terminate_on_amount():
             def inner(_kv):
                 emitted_words_counter[0] += 1
-                return 20 <= emitted_words_counter[0]
+                return n <= emitted_words_counter[0]
             return inner
 
 
