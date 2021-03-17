@@ -7,11 +7,9 @@ import random
 
 try:
     from .chain import MarkovChain
-    from .state import LookbackState
 
 except:
     from chain import MarkovChain
-    from state import LookbackState
 
 class NGramMarkovChain(MarkovChain):
     def __init__(self, lookback):
