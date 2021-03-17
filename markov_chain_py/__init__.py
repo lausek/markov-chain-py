@@ -38,14 +38,14 @@ def main():
 
     parser = argparse.ArgumentParser()
 
-    parser.add_argument('-n', type=int, default=20, help='Amount of words to generate.')
-    parser.add_argument('-s', type=int, default=None, help='Amount of sentences to generate. This will overturn -n.')
-    parser.add_argument('--lookback', type=int, default=1, help='Amount of states to consider for determining the next state.')
-    parser.add_argument('--keep-newlines', default=False, action='store_true', help='Avoid stripping newline character from input data.')
-    parser.add_argument('--verbose', default=False, action='store_true', help='Output verbose information about the text generation.')
+    parser.add_argument('-n', type=int, default=20, help='amount of words to generate.')
+    parser.add_argument('-s', type=int, default=None, help='amount of sentences to generate. This will overturn -n.')
+    parser.add_argument('--lookback', type=int, default=1, help='amount of states to consider for determining the next state.')
+    parser.add_argument('--keep-newlines', default=False, action='store_true', help='avoid stripping newline character from input data.')
+    parser.add_argument('--verbose', default=False, action='store_true', help='output verbose information about the text generation.')
 
-    parser.add_argument('--mode', type=str, default='', help='Text generation mode: ngram, pos, tag')
-    parser.add_argument('--lang', type=str, default='de', help='Text language: de')
+    parser.add_argument('--mode', type=str, default='', help='text generation mode: ngram, pos, tag')
+    parser.add_argument('--lang', type=str, default='de', help='text language: de')
 
     args = parser.parse_args()
 
