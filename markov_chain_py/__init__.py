@@ -41,6 +41,7 @@ def main():
     parser.add_argument('-n', type=int, default=20, help='Amount of words to generate.')
     parser.add_argument('-s', type=int, default=None, help='Amount of sentences to generate. This will overturn -n.')
     parser.add_argument('--lookback', type=int, default=1, help='Amount of states to consider for determining the next state.')
+    parser.add_argument('--keep-newlines', default=False, action='store_true', help='Avoid stripping newline character from input data.')
     parser.add_argument('--verbose', default=False, action='store_true', help='Output verbose information about the text generation.')
 
     parser.add_argument('--mode', type=str, default='', help='Text generation mode: ngram, pos, tag')
@@ -62,6 +63,9 @@ def main():
 
     else:
         gen = MarkovChain(args.lookback)
+
+    if args.keep_newlines:
+        gen.enable_keep_newlines()
 
     gen.add_string(sys.stdin.read())
     text = gen.generate_text(args.s) if args.s else gen.generate(args.n)

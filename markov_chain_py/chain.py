@@ -18,6 +18,10 @@ class MarkovChain(object):
         # this will be `True` if the chain can be terminated aka.
         # if it contains a `SENTENCE_STOP`
         self.has_sentence_support = False
+        self.keep_newlines = False
+
+    def enable_keep_newlines(self):
+        self.keep_newlines = True
 
     def _build_initial_key(self, it, lookback):
         return LookbackState(lookback, [next(it) for _ in range(lookback)])
@@ -30,6 +34,9 @@ class MarkovChain(object):
         s = s.replace('.', ' . ')
 
         for line in s.split('\n'):
+            if self.keep_newlines:
+                yield '\n'
+
             for word in line.split(' '):
                 word = word.strip().lower()
 

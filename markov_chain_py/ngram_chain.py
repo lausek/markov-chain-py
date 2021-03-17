@@ -19,8 +19,11 @@ class NGramMarkovChain(MarkovChain):
         return ''.join(sequence)
 
     def _tokenize(self, s):
-        should_avoid_char = lambda c: c not in ['\n']
-        return iter(filter(should_avoid_char, s))
+        if not self.keep_newlines:
+            should_keep_char = lambda c: c not in ['\n']
+            return iter(filter(should_keep_char, s))
+
+        return iter(s.replace('\n', ' \n '))
 
     def add_string(self, s):
         chars = self._tokenize(s)
