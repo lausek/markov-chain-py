@@ -31,7 +31,7 @@ class MarkovChain(object):
 
     def _tokenize(self, s):
         # make sure that SENTENCE_STOP has enough space to correctly tokenize
-        s = s.replace('.', ' . ')
+        s = s.replace('.', ' . ').replace(',', ' , ')
 
         for line in s.split('\n'):
             if self.keep_newlines:

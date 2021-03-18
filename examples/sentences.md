@@ -326,7 +326,7 @@ Jedes Unterfach ist mit einem Sensor ausgestattet .
 Bei Hinzufügen und Entnahme einer Geldkassette wird eine SMS an die Zentrale gesandt .
 
 In einer Recycling-Anlage werden auf einem zentralen Förderband die Wertstoffe Papier (P) ,Metall (M) und Kunststoff (S) angeliefert .
-Für die Trennung eines jeden Wertstoff existiert einzuständiges Verfahren .
+Für die Trennung eines jeden Wertstoff existiert ein zuständiges Verfahren .
 Jedem Verfahren ist eine Box mit einer Kapazität von 1000 Einheiten zugeordnet .
 Die Box ist mit einem Sensor ausgestattet .
 Die Leitstelle wird automatisch informiert ,wenn die Box gefüllt ist und getauscht werden muss .
@@ -545,4 +545,3 @@ Standardmäßig ist die Küchenmaschine ausgeschaltet .
 Bei Drücken des Schalters wird die Küchenmaschine angeschaltet .
 Bei erneutem Drücken wird die Küchenmaschine ausgeschaltet .
 Für einen 3-poligen Stromanschluss wird ein Adapter eingesetzt .
-
