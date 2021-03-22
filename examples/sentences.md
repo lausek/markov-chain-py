@@ -109,7 +109,7 @@ Eine Karte im Status ungültig wird vom Kartenleser abgewiesen und es ist keiner
 
 Eine Mautstation hat eine spezielle Einfahrt (EasyPass) für registrierte Fahrzeuge .
 Das Fahrzeug fährt an die geschlossene Schranke .
-Ein Sensor registriert das Fahrzeug und liest die Daten vondem RFID-Chip ein .
+Ein Sensor registriert das Fahrzeug und liest die Daten von dem RFID-Chip ein .
 Nach erfolgreicher Validierung sendet der Sensor das Kommando Öffnen an die Schranke .
 Die Durchfahrt von dem Fahrzeug wird vom Sensor registriert und dieser sendet das Kommando Schließen an die Schranke .
 
@@ -118,7 +118,7 @@ An der Abfahrt S2 befindet sich ein Sensor , der vom Tower kontinuierlich beobac
 Das Flugzeug F1 befindet sich im Landeanflug .
 Das Flugzeug F2 wartet an der Zufahrt S1 auf die Startfreigabe durch den Tower .
 Der Tower erteilt dem Flugzeug F1 die Freigabe zum Landen .
-Nachdem F1 die Abfahrt S2 passiert hat , erteiltder Tower dem Flugzeug F2 die Freigabe zum Starten .
+Nachdem F1 die Abfahrt S2 passiert hat , erteilt der Tower dem Flugzeug F2 die Freigabe zum Starten .
 
 Eine Verzeichnisstruktur besteht aus Hauptverzeichnis , Unterverzeichnis und Datei .
 Eine Datei ist vom Typ Verzeichnis .
@@ -458,7 +458,7 @@ Aus dem Luftstrom wird der Staub ( Zeichen d = dust ) gefiltert .
 
 Ein Hotel verfügt über acht Etagen .
 Jede Etage verfügt einen Flur , auf dessen rechten und linken Seite je 50 Zimmer angeordnet sind .
-Die Zimmer können [i] für eine bestimmte Etage oder [ii] allesukzessive durchlaufen werden .
+Die Zimmer können [i] für eine bestimmte Etage oder [ii] alle sukzessive durchlaufen werden .
 Jedes Zimmer verfügt über einen Brandmelder .
 Bei einem Brand wird die Feuerwehr automatisch benachrichtigt .
 

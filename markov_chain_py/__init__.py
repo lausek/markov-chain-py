@@ -71,6 +71,9 @@ def main():
     text = gen.generate_text(args.s) if args.s else gen.generate(args.n)
 
     try:
+        logging.debug(gen.table)
+        logging.debug('')
+
         text = gen.generate_text(args.s) if args.s else gen.generate(args.n)
         logging.info(text)
 

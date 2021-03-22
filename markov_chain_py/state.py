@@ -3,10 +3,11 @@ class LookbackState:
         self.lookback = lookback
 
         if isinstance(initial, LookbackState):
-            initial = initial._inner
+            self._inner = initial._inner
 
-        if isinstance(initial, list):
+        elif isinstance(initial, list):
             self._inner = initial
+
         else:
             self._inner = list(map(str, initial))
 

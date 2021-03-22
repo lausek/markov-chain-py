@@ -15,11 +15,14 @@ class LookupTable:
 
         raise Exception('key of type %s is not supported' % type(key).__name__)
 
+    def is_nested(self):
+        return 1 < self._depth
+
     def keys(self):
         return list(self._layer.keys())
 
     def find_random_state(self):
-        if 1 < self._depth:
+        if self.is_nested():
             return random.choice(list(self._layer.values())).find_random_state()
         return random.choice(self.keys())
 
@@ -45,7 +48,7 @@ class LookupTable:
 
         if len(key) == self._depth:
             # this layer is nested
-            if 1 < self._depth:
+            if self.is_nested():
                 if key[0] not in self._layer:
                     self._layer[key[0]] = LookupTable(self._depth - 1)
 
@@ -62,5 +65,11 @@ class LookupTable:
             for child_layer in self._layer.values():
                 child_layer.add(key, item)
 
+    def rules(self) -> list:
+        if self.is_nested():
+            return ('%s, %s' % (key, str(rule)) for key, child in self._layer.items() for rule in child.rules())
+        return ('%s => %s' % (key, ' | '.join(values)) for key, values in self._layer.items())
+
+
     def __repr__(self):
-        return str(self._layer)
+        return '\n'.join(map(str, self.rules()))
