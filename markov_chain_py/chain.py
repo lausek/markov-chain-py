@@ -20,9 +20,6 @@ class MarkovChain(object):
         self.has_sentence_support = False
         self.keep_newlines = False
 
-    def enable_keep_newlines(self):
-        self.keep_newlines = True
-
     def _build_initial_key(self, it, lookback):
         return LookbackState(lookback, [next(it) for _ in range(lookback)])
 
@@ -31,7 +28,7 @@ class MarkovChain(object):
 
     def _tokenize(self, s):
         # make sure that SENTENCE_STOP has enough space to correctly tokenize
-        s = s.replace('.', ' . ').replace(',', ' , ')
+        s = s.replace('.', ' . ').replace(',', ' , ').replace('!', ' ! ').replace('?', ' ? ')
 
         for line in s.split('\n'):
             if self.keep_newlines:
@@ -55,6 +52,10 @@ class MarkovChain(object):
             return MarkovChain.SENTENCE_STOP
         return self.table.find_random_state()
     
+
+    def enable_keep_newlines(self):
+        self.keep_newlines = True
+
     def add_string(self, s):
         words = iter(self._tokenize(s))
         prev = self._build_initial_key(words, self.lookback)
