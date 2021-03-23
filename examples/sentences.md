@@ -5,7 +5,7 @@ Für einen Export der Daten meldet sich der Wissenschaftler über einen Proxy an
 Ein Computer hat eine USB2-Schnittstelle .
 Ein DVD-Brenner hat eine USB3-Schnittstelle .
 Der DVD-Brenner wird über einen Adapter an den Computer angeschlossen .
-Ein Systemprozess im Computer beobachtet kontinuierlich die USB2-Schnittstelle und generiert eine Meldung , sobaldein Gerät – in diesem Fall der Adapter – an die USB2-Schnittstelle angeschlossen wurde .
+Ein Systemprozess im Computer beobachtet kontinuierlich die USB2-Schnittstelle und generiert eine Meldung , sobald ein Gerät – in diesem Fall der Adapter – an die USB2-Schnittstelle angeschlossen wurde .
 
 Ein Auto ist mit einem Motor ausgestattet .
 Bei einem Motor kann je nach Kundenwunsch zwischen 75 PS und 90 PS variiert werden .
@@ -25,7 +25,7 @@ Wird ein ungültiger Pass ( Attribut Status = invalid ) bei der Kontrolle erkann
 Ein Sortierprozess beobachtet kontinuierlich einen Datenspeicher .
 In dem Datenspeicher befinden sich ganze Zahlen in aufsteigender Sortierung .
 Bei Änderung eines Wertes im Datenspeicherwerden die Werte automatisch durch den Sortierprozess wieder sortiert .
-Dem Sortierprozessstehen zwei Sortierstrategien (i) QuickSort und (ii) MergeSort zur Verfügung .
+Dem Sortierprozess stehen zwei Sortierstrategien (i) QuickSort und (ii) MergeSort zur Verfügung .
 
 Bei einem Tower am Flughafen sind drei Flugzeuge F1 , F2 und F3 sowie die beiden Startbahnen R1 und R2 zentral registriert .
 Der Tower sendet das Kommando Taxi mit der Angabe einer Startbahn an das (registrierte) Flugzeug .
@@ -408,7 +408,7 @@ Ein Kontrollcenter wird automatisch bei ungewöhnlichen Ereignissen in der Zone 
 Für jede Zone existiertein zuständiger Arbeitsplatz mit einem Mitarbeiter , der entsprechende Maßnahmen einleitet .
 
 An einer Grenzkontrolle existieren die Spuren Normal , Militär und und Diplomaten .
-In Abhängigkeitvon der Klassifizierung des PKW erfolgt eine Zuordnung zu der korrespondierenden Spur .
+In Abhängigkeit von der Klassifizierung des PKW erfolgt eine Zuordnung zu der korrespondierenden Spur .
 Die PKW der Klasse Militär und Diplomaten verfügen über einen Sender , welcher automatisch ein Kommando zum Öffnen der Schranke sendet .
 
 Mit einem Schalter wird das Behandlungsgerät angeschaltet und ausgeschaltet .

@@ -117,3 +117,51 @@ Du stellst die Erwartungen anderer über Deine eigenen, das macht unzufrieden. H
 Die Liebessterne stehen bestens, unbedingt die Zeit ausnutzen. Achte darauf, dass Du Dich nicht auf Kosten anderer profilierst oder diese sogar ausbeutest. Bleibe auf dem Boden der Tatsachen.
 
 Entscheide noch nichts, sammle aber Informationen so viele wie möglich. Geld regiert vielleicht die Welt, Du solltest das aber nicht mit Dir machen lassen.
+
+Mache Abstriche bei Deinen erotischen Gedanken. Gib bloß niemandem ungefragt einen Rat. Du kommst im Moment einfach nicht an, da Du selbst mit Dir nicht so richtig zufrieden bist.
+
+Ein Freund wartet verzweifelt auf eine Nachricht, eigentlich hast Du ihn nicht verdient. Nur solide Arbeit findet Anerkennung.
+
+Für Vertragsabschlüsse und finanziell ist die Zeit vorteilhaft. Wenn Du Dir ein Ziel gesetzt hast, so kannst Du dieses jetzt verwirklichen. Aus dem Umgang mit Deinen Partnern und Kollegen ziehst Du Dich jetzt etwas zurück, um Abstand zu gewinnen. Nicht jeder wird das verstehen.
+
+Durch Konzentration und Ausdauer kannst Du jetzt anstehende Arbeiten gründlich planen und Unerledigtes ein für allemal aus der Welt schaffen. Eine große Liebes-Enttäuschung droht, wenn Du jemanden zu sehr idealisiert hast. Gehe also immer mit offenen Sinnen durch das Leben.
+
+Eine schöne Zeit wartet auf Dich, vor allen Dingen mit der Familie. Singles sollten erheblich selbstkritischer werden und behutsam vorgehen. Ignoriere Deine Angreifer, damit kommst Du auf die Siegerseite.
+
+Dein Geist ist offen und empfänglich, sodass Du nicht nur die verbalen Äußerungen Deines Partners verstehst, sondern auch seine Emotionen. Sei offen für Kritik. Am Ende erfährst Du nicht nur viel über Dich selbst, sondern wirst innerlich stärker und reicher.
+
+Die Durchsetzung Deiner beruflichen Vorstellungen wird wesentlich davon abhängen, ob Du Deine Ideen mit Entschiedenheit vertrittst. Durch Ehrgeiz und Fleiß kannst Du Dir den weiteren beruflichen Weg ebnen. Pack es also endlich an, und warte nicht immer ab.
+
+Du fühlst Dich vielleicht gerade nicht in Höchstform. Du solltest deshalb Stress und Hektik auf ein Minimum reduzieren. Beherzige die nächsten drei Hinweise, dann kann eigentlich nichts mehr schiefgehen: fit am Morgen, gemächlich mittags, sinnlich am Abend.
+
+Setze den Spaßfaktor ruhig etwas höher. Deine Stimmung ist großartig und Du hast Lust auf witzige und ausgelassene Unterhaltung. Wenn Du jetzt beruflich nichts bewegst, dann verschläfst Du die Zeit.
+
+Mögliche Unstimmigkeiten in der Partnerschaft lösen sich in Wohlgefallen auf. Lege öfter mal eine Pause ein.
+
+Von Außenstehenden bekommst Du viele Impulse und Zuspruch, denn Du bist im Freundeskreis und in der Familie sehr beliebt. Der Schuldenberg drückt, plane besser, werde Dir klar darüber, was wichtig ist.
+
+Gönne Dir eine Massage, Du hast Nackenverspannungen. In beruflicher Hinsicht beteiligst Du Dich mit viel Eifer an neuen Aufgaben und Projekten.
+
+Beim Flirten schleicht sich jemand ganz tief in Dein Herz. Verstecke nicht Dein zartes Innenleben hinter einer rauen Schale.
+
+Du verlierst auf keinen Fall Dein Gesicht, wenn Du eine getroffene Entscheidung revidierst. Lange genug hast Du verständnisvoll mitgespielt. Überwinde Dich und sprich das an, was Dir im Freundeskreis schon länger nicht gefällt.
+
+Öfter mal die Sportsachen anziehen und loslegen. In beruflichen Angelegenheiten hast Du jetzt die Nase vorn.
+
+Du bist zu unnachgiebig. Bei Verhandlungen mehr auf Diplomatie setzen. Jeden Tag ein Stück zu Fuß gehen wirkt Wunder.
+
+Andere können noch so aufgebracht sein, Du schaffst es immer wieder, eine Ruheinsel zu bauen und von dort aus ausgleichend zu wirken. Statt in vorwurfsvollem Schweigen zu versinken, von dem Du hoffst, dass es bemerkt wird, solltest Du lieber Deinem Ärger Luft machen.
+
+Um persönliche Fortschritte zu machen, wirst Du jetzt unbekannte Gebiete betreten müssen. Wage diesen Schritt, er führt zum Erfolg! Dein Familienleben steht unter einer enormen Anspannung.
+
+Setze Prioritäten und verschiebe unwichtige Termine oder Aufgaben auf später. Man kann schließlich nicht zwei Dinge gleichzeitig lösen. In finanziellen Angelegenheiten kommt Dir Dein siebter Sinn zugute.
+
+Entfalte Dein Talent, dann kannst Du damit brillieren. Jetzt wird es spannend, denn endlich bringt Dich mal jemand auf andere Gedanken. Das kommt Dir gerade recht und lenkt Dich wunderbar ab.
+
+Keine wichtigen Entscheidungen treffen, Verhandlungen können Nachteile bringen. Etwas anstrengend alles, aber es fällt Dir bald eine praktikable Lösung ein.
+
+Wichtig ist jetzt nicht blinder Aktionismus, sondern die Ausgewogenheit zwischen Arbeit und Ruhephasen. Finde Deine eigene Mitte. Denke an Dein Immunsystem, gib ihm, was es braucht.
+
+Eine schöne Umgebung wirkt wohltuend auf Herz und Verstand. Gönne Dir eine Auszeit mit der ganzen Familie, Du kannst nicht alles haben, was Du Dir wünschst. Manchmal musst Du auf etwas verzichten. Mache andere nicht dafür verantwortlich.
+
+Es erwartet Dich eine Zeit starker geistiger Aktivität – verbunden mit Streitgesprächen. Alle Vorhaben, die sachliche Überlegungen und nüchterne Entscheidungen verlangen, sind begünstigt. Der Verstand ist jetzt besonders lebendig.

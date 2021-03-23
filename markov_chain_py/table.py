@@ -35,7 +35,10 @@ class LookupTable:
             return self._layer[key[0]]
 
         # key is too short, brute force through child layers
-        for child_layer in self._layer.values():
+        children = list(self._layer.values())
+        random.shuffle(children)
+
+        for child_layer in children:
             try:
                 return child_layer.get(key)
             except KeyError:
@@ -69,7 +72,6 @@ class LookupTable:
         if self.is_nested():
             return ('%s, %s' % (key, str(rule)) for key, child in self._layer.items() for rule in child.rules())
         return ('%s => %s' % (key, ' | '.join(values)) for key, values in self._layer.items())
-
 
     def __repr__(self):
         return '\n'.join(map(str, self.rules()))

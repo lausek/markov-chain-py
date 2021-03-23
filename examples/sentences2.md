@@ -4,7 +4,7 @@ Es ist einmalig eine CSV-Datei base_package.csv im Format mit 24.000 Zeilen zu e
 In vier ausgewählten Paketen ist im content die Zeichenkette exp!os:ve an einer beliebigen Stelle zu integrieren .
 Eine Box ist charakterisiert durch alphanumerische 5-stellige id aus dem Zeichenpool [a-z, 0-9] und hat eine Kapazität für 40 Pakete .
 Eine Box hat fünf Ebenen .
-Eine Ebene hat auf der linken undrechte Seite eine Kapazität für je vier hintereinander angeordnete Pakete .
+Eine Ebene hat auf der linken und rechten Seite eine Kapazität für je vier hintereinander angeordnete Pakete .
 Die 24.000 Pakete sind sukzessive auf 600 Boxen zu verteilen .
 Es ist einmalig eine CSV-Datei base_box.csv im Format mit 600 Zeilen zu erstellen .
 Eine Palette ist charakterisiert durch eine fortlaufende nummerische id ( beginnend bei 1 ) und hat2x2 Positionen .

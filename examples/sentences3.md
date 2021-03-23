@@ -30,7 +30,7 @@ Existiert kein Channel mit dem Namen und keine Kommunikationsbeziehung zwischen 
 Nach erfolgreicher Erstellung eines channel erfolgt die Meldung im Ausgabebereich der GUI , in der Tabelle channel wird ein Datensatz angelegt .
 Für die Simulation werden folgende channel angelegt .
 Existiert kein channel mit dem Namen, wird im Ausgabebereich der GUI die Fehlermeldung ausgegeben .
-Bei Erhalt einer Nachricht wird in der Tabelle postbox des intruder ein neuer Datensat zerstellt , das Attribut message wird auf den Wert unknown gesetzt .
+Bei Erhalt einer Nachricht wird in der Tabelle postbox des intruder ein neuer Datensatz erstellt , das Attribut message wird auf den Wert unknown gesetzt .
 Der participant lädt dynamisch die zu dem Algorithmus korrespondierende Komponente und versucht innerhalb von maximal 30 Sekunden die Meldung zu entschlüsseln .
 Wird innerhalb der Zeitvorgabe die Nachricht erfolgreich entschlüsselt , wird das Attribut message auf den Wert der Meldung im Klartext gesetzt .
 Im Fall einer erfolgreichen Entschlüsselung wird im Ausgabebereich der GUI die Meldung angezeigt .
