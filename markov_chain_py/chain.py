@@ -47,8 +47,8 @@ class MarkovChain(object):
 
     # this is only used if the value to be printed is not equal to the key.
     # for naive markov chains the state name is equal to the word.
-    def _lookup_value(self, state):
-        return state
+    def _patch_step(self, state):
+        return state, state
 
     def _start_state(self) -> str:
         if self.has_sentence_support:
@@ -83,10 +83,10 @@ class MarkovChain(object):
 
                 resets += 1
 
-            emitted = self._lookup_value(state)
-            sequence.append(emitted)
+            state, emit = self._patch_step(state)
+            sequence.append(emit)
 
-            if termination_func((state, emitted)):
+            if termination_func((state, emit)):
                 break
 
             prev_state.update(state)

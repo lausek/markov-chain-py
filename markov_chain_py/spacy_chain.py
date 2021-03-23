@@ -22,8 +22,8 @@ class SpacyMarkovChain(MarkovChain):
         is_non_punctuation = lambda c: c not in ['/', '\\', '|', '-', '[', ']', '(', ')', '=', '\n']
         return not any(map(is_non_punctuation, value))
 
-    def _lookup_value(self, state):
-        return random.choice(self.words[state])
+    def _patch_step(self, state):
+        return state, random.choice(self.words[state])
 
     def _start_state(self) -> str:
         return 'PUNCT'
