@@ -1,5 +1,19 @@
 import random
 
+class Rule:
+    def __init__(self, n0_states, n1_states):
+        self.n0_states = n0_states
+        self.n1_states = n1_states
+
+    def prepend_n0_state(self, key):
+        self.n0_states.insert(0, key)
+        return self
+
+    def __str__(self):
+        from_states = ', '.join(self.n0_states)
+        into_states = ' | '.join(self.n1_states)
+        return f'{from_states} => {into_states}'
+
 class LookupTable:
     def __init__(self, depth, graceful=True):
         self._depth = depth
@@ -70,8 +84,8 @@ class LookupTable:
 
     def rules(self) -> list:
         if self.is_nested():
-            return ('%s, %s' % (key, str(rule)) for key, child in self._layer.items() for rule in child.rules())
-        return ('%s => %s' % (key, ' | '.join(values)) for key, values in self._layer.items())
+            return (rule.prepend_n0_state(key) for key, child in self._layer.items() for rule in child.rules())
+        return (Rule([key], values) for key, values in self._layer.items())
 
     def __repr__(self):
         return '\n'.join(map(str, self.rules()))
