@@ -10,7 +10,7 @@ Ein Systemprozess im Computer beobachtet kontinuierlich die USB2-Schnittstelle u
 Ein Auto ist mit einem Motor ausgestattet .
 Bei einem Motor kann je nach Kundenwunsch zwischen 75 PS und 90 PS variiert werden .
 Das Drehen des Zündschlüssels erzeugt ein Kommando und der Motor wird an- oder ausgeschaltet .
-Das Drehen des Zündschlüssels nach vorne schaltet den Motoran .
+Das Drehen des Zündschlüssels nach vorne schaltet den Motor an .
 Das Drehen des Zündschlüssels nach hinten schaltet den Motor aus .
 
 Ein Taschenrechner hat den Status an oder aus .
@@ -24,7 +24,7 @@ Wird ein ungültiger Pass ( Attribut Status = invalid ) bei der Kontrolle erkann
 
 Ein Sortierprozess beobachtet kontinuierlich einen Datenspeicher .
 In dem Datenspeicher befinden sich ganze Zahlen in aufsteigender Sortierung .
-Bei Änderung eines Wertes im Datenspeicherwerden die Werte automatisch durch den Sortierprozess wieder sortiert .
+Bei Änderung eines Wertes im Datenspeicher werden die Werte automatisch durch den Sortierprozess wieder sortiert .
 Dem Sortierprozess stehen zwei Sortierstrategien (i) QuickSort und (ii) MergeSort zur Verfügung .
 
 Bei einem Tower am Flughafen sind drei Flugzeuge F1 , F2 und F3 sowie die beiden Startbahnen R1 und R2 zentral registriert .
@@ -230,7 +230,7 @@ Mit einer Fernbedienung wird der Kühlcontainer durch die Kommandos Start und He
 
 Ein Apothekerschrank vom Typ Fach hat 15 Hauptfächer .
 Ein Hauptfach hat 5 Subfächer .
-Ein Fachbietet Platz für 10 Packungen .
+Ein Fach bietet Platz für 10 Packungen .
 Initial ist jedes Fach mit 10 Packungen gefüllt .
 Der Füllgrad zu einem Fach wird kontinuierlich durch einen Sensor überwacht .
 Bei einem Füllgrad von vier Packungen erhält der Apotheker automatisch eine SMS auf sein Smartphone .
@@ -302,7 +302,7 @@ Nach Abschluss drückt der Kunde einen Button und ein Drucker erstellt einen Bel
 
 Für einen Notausstieg existiert eine Scheibe .
 Die Scheibe ist in 9 Segmente unterteilt .
-Segmentesind vom Typ Scheibe .
+Segmente sind vom Typ Scheibe .
 Das Segment in der Mitte ist mit einem Sensor ausgestattet .
 Wird mit einem Nothammer auf ein Segment geschlagen , zerbricht die Scheibe und über den Sensor wird der Lokführer automatisch informiert .
 
@@ -355,7 +355,7 @@ Die Stromversorgung erfolgt über einen 2-Pin-Stecker .
 Für die Stromversorgung mit einem 3-Pin-Stecker wird ein Adapter eingesetzt .
 
 Ein Busbahnhof hat drei drei Spuren Lokal , Shuttle und Fernbus .
-Auf einem zentralen Parkplatz miteiner Kapazität von 50 Bussen warten - zufällig verteilt - 30 Busse vom Typ Lokal , 8 Busse vom Typ Shuttle und 12 Fernbusse .
+Auf einem zentralen Parkplatz mit einer Kapazität von 50 Bussen warten - zufällig verteilt - 30 Busse vom Typ Lokal , 8 Busse vom Typ Shuttle und 12 Fernbusse .
 Von einer zentralen Disposition erhalten die Busse den Auftrag zum Busbahnhof zu fahren und in der korrespondierenden Spur die Fahrgäste aufzunehmen .
 
 Initial hat ein Fahrgast den Status S0 .
