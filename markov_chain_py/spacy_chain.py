@@ -2,7 +2,7 @@ from collections import defaultdict
 import os
 import random
 
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' 
+os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
 
 import spacy
 
@@ -19,14 +19,25 @@ class SpacyMarkovChain(MarkovChain):
         self._nlp = spacy.load(model)
 
     def __contains_only_punctuation(self, value):
-        is_non_punctuation = lambda c: c not in ['/', '\\', '|', '-', '[', ']', '(', ')', '=', '\n']
+        is_non_punctuation = lambda c: c not in [
+            "/",
+            "\\",
+            "|",
+            "-",
+            "[",
+            "]",
+            "(",
+            ")",
+            "=",
+            "\n",
+        ]
         return not any(map(is_non_punctuation, value))
 
     def _patch_step(self, state):
         return state, random.choice(self.words[state])
 
     def _start_state(self) -> str:
-        return 'PUNCT'
+        return "PUNCT"
 
     def _populate_chain(self, prev, current):
         prev_key = list(map(self._lookup_key, prev))
@@ -42,7 +53,7 @@ class SpacyMarkovChain(MarkovChain):
                 continue
 
             # ignore unknown words
-            if token.pos_ == 'X':
+            if token.pos_ == "X":
                 continue
 
             self._populate_chain(prev.get(), token)
@@ -69,7 +80,7 @@ class SpacyTagMarkovChain(SpacyPosMarkovChain):
         super().__init__(model, lookback)
 
     def _start_state(self) -> str:
-        return '$.'
+        return "$."
 
     def _lookup_key(self, obj):
         return obj.tag_

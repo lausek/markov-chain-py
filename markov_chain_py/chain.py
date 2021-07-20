@@ -9,8 +9,9 @@ except:
     from table import LookupTable
     from state import LookbackState
 
+
 class MarkovChain(object):
-    SENTENCE_STOP = '.'
+    SENTENCE_STOP = "."
 
     def __init__(self, lookback):
         self.lookback = lookback
@@ -24,17 +25,22 @@ class MarkovChain(object):
         return LookbackState(lookback, [next(it) for _ in range(lookback)])
 
     def _format_output_sequence(self, sequence):
-        return ' '.join(sequence)
+        return " ".join(sequence)
 
     def _tokenize(self, s):
         # make sure that SENTENCE_STOP has enough space to correctly tokenize
-        s = s.replace('.', ' . ').replace(',', ' , ').replace('!', ' ! ').replace('?', ' ? ')
+        s = (
+            s.replace(".", " . ")
+            .replace(",", " , ")
+            .replace("!", " ! ")
+            .replace("?", " ? ")
+        )
 
-        for line in s.split('\n'):
+        for line in s.split("\n"):
             if self.keep_newlines:
-                yield '\n'
+                yield "\n"
 
-            for word in line.split(' '):
+            for word in line.split(" "):
                 word = word.strip().lower()
 
                 if not word:
@@ -51,7 +57,6 @@ class MarkovChain(object):
         if self.has_sentence_support:
             return MarkovChain.SENTENCE_STOP
         return self.table.find_random_state()
-    
 
     def enable_keep_newlines(self):
         self.keep_newlines = True
@@ -92,10 +97,10 @@ class MarkovChain(object):
 
             prev_state.update(state)
 
-        logging.debug('# lookback: %d', self.lookback)
-        logging.debug('# top-level states: %d', len(self.table.keys()))
-        logging.debug('# resets: %d', resets)
-        logging.debug('')
+        logging.debug("# lookback: %d", self.lookback)
+        logging.debug("# top-level states: %d", len(self.table.keys()))
+        logging.debug("# resets: %d", resets)
+        logging.debug("")
 
         return sequence
 
@@ -104,18 +109,16 @@ class MarkovChain(object):
         def terminate_on_cycle(kv):
             return kv[0] == self._start_state()
 
-
         # make sure that this chain actually contains a termination token.
         if not self.has_sentence_support:
             raise Exception(
-                'Cannot generate sentences as chain does not contain '
-                f'`{MarkovChain.SENTENCE_STOP}`.'
+                "Cannot generate sentences as chain does not contain "
+                f"`{MarkovChain.SENTENCE_STOP}`."
             )
-
 
         text = (self._generate_sequence(terminate_on_cycle) for _ in range(s))
 
-        return ' '.join(map(self._format_output_sequence, text))
+        return " ".join(map(self._format_output_sequence, text))
 
     # generate a sequence of `n` words
     def generate(self, n=20):
@@ -123,11 +126,11 @@ class MarkovChain(object):
             def inner(_kv):
                 emitted_words_counter[0] += 1
                 return n <= emitted_words_counter[0]
-            return inner
 
+            return inner
 
         # implement this as list to allow sharing between functions
         emitted_words_counter = [0]
-        
+
         sequence = self._generate_sequence(terminate_on_amount())
         return self._format_output_sequence(sequence)

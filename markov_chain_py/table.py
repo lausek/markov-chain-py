@@ -1,5 +1,6 @@
 import random
 
+
 class Rule:
     def __init__(self, n0_states, n1_states):
         self.n0_states = n0_states
@@ -10,9 +11,10 @@ class Rule:
         return self
 
     def __str__(self):
-        from_states = ', '.join(self.n0_states)
-        into_states = ' | '.join(self.n1_states)
-        return f'{from_states} => {into_states}'
+        from_states = ", ".join(self.n0_states)
+        into_states = " | ".join(self.n1_states)
+        return f"{from_states} => {into_states}"
+
 
 class LookupTable:
     def __init__(self, depth, graceful=True):
@@ -27,7 +29,7 @@ class LookupTable:
         if isinstance(key, str):
             return [key]
 
-        raise Exception('key of type %s is not supported' % type(key).__name__)
+        raise Exception("key of type %s is not supported" % type(key).__name__)
 
     def is_nested(self):
         return 1 < self._depth
@@ -70,7 +72,7 @@ class LookupTable:
                     self._layer[key[0]] = LookupTable(self._depth - 1)
 
                 self._layer[key[0]].add(key[1:], item)
-            
+
             # this layer is flat
             else:
                 if key[0] not in self._layer:
@@ -84,8 +86,12 @@ class LookupTable:
 
     def rules(self) -> list:
         if self.is_nested():
-            return (rule.prepend_n0_state(key) for key, child in self._layer.items() for rule in child.rules())
+            return (
+                rule.prepend_n0_state(key)
+                for key, child in self._layer.items()
+                for rule in child.rules()
+            )
         return (Rule([key], values) for key, values in self._layer.items())
 
     def __repr__(self):
-        return '\n'.join(map(str, self.rules()))
+        return "\n".join(map(str, self.rules()))

@@ -13,7 +13,7 @@ class LookbackState:
 
     def __eq__(self, other):
         if not isinstance(other, LookbackState):
-            raise Exception('%s is not a LookbackState' % type(other).__name__)
+            raise Exception("%s is not a LookbackState" % type(other).__name__)
 
         return all(map(lambda pair: pair[0] == pair[1], zip(self._inner, other._inner)))
 
